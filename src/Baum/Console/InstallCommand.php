@@ -58,13 +58,28 @@ class InstallCommand extends Command {
    *
    * @return void
    */
-  public function fire() {
+  public function handle() {
     $name = $this->input->getArgument('name');
 
     $this->writeMigration($name);
 
     $this->writeModel($name);
 
+  }
+
+  /**
+   * Execute the console command.
+   *
+   * Basically, we'll write the migration and model stubs out to disk inflected
+   * with the name provided. Once its done, we'll `dump-autoload` for the entire
+   * framework to make sure that the new classes are registered by the class
+   * loaders.
+   *
+   * @deprecated deprecated since version 1.1.2
+   * @return void
+   */
+  public function fire() {
+    $this->handle();
   }
 
   /**
