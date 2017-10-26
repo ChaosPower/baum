@@ -12,7 +12,7 @@
     }
   ],
   "require": {
-    "php": ">=5.4.0",
+    "php": ">=7.0.0",
     "illuminate/console": "5.*",
     "illuminate/database": "5.*",
     "illuminate/events": "5.*",
@@ -28,5 +28,12 @@
     "psr-0": {
       "Baum": "src/"
     }
-  }
+  },
+  "extra": {
+        "laravel": {
+            "providers": [
+                "Baum\\Providers\\BaumServiceProvider"
+            ]
+        }
+    }
 }
